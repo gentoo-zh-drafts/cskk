@@ -1,0 +1,20 @@
+
+name: Create crate dist
+on:
+  push:
+    tags:
+      - '**'
+
+jobs:
+  crate-dist:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Create crate dist
+        uses: projg2/crate-dist-action@v1
+        with:
+          directories: lru_ordered_map
+          dist-filename: cskk-3.2.0-crates.tar.xz
+          run-cargo-update: false
+
